@@ -6,7 +6,7 @@ import asyncio
 
 
 
-TOKEN = 'NzY5OTE1OTY2NDY4MzkwOTIy.X5V-Hg.ro4S4aR_YiaMINN9ng8H8l1ZL0s'
+TOKEN = 'token'
 bot = commands.Bot(command_prefix = "$", description = "SECURITY LVL:\n1\n2\n3\n4\n5\n6 ")
 bot.remove_command('help')
 
