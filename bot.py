@@ -6,7 +6,7 @@ import asyncio
 
 
 
-TOKEN = ''
+TOKEN = 'NzY5OTE1OTY2NDY4MzkwOTIy.X5V-Hg.ro4S4aR_YiaMINN9ng8H8l1ZL0s'
 bot = commands.Bot(command_prefix = "$", description = "SECURITY LVL:\n1\n2\n3\n4\n5\n6 ")
 bot.remove_command('help')
 
@@ -22,9 +22,9 @@ status = ["$help"]
 async def on_ready():
 	print("Ready !")
 
-###################################################
+##################################################
 ##########   HELP   ##############################
-###################################################
+##################################################
 
 
 
@@ -70,12 +70,9 @@ async def mute(ctx, member: discord.Member):
 async def kick(ctx, user : discord.User, *reason):
 	reason = " ".join(reason)
 	await ctx.guild.kick(user, reason = reason)
-	embed = discord.Embed(title = "**KICK**", url = "https://discord.gg/EN9sv4d")
-	embed.set_thumbnail(url = "https://media1.tenor.com/images/25715a5aea4f0c70057ede6e05a6472d/tenor.gif?itemid=13461094")
-	embed.add_field(name = "Kicked Member", value = user.name, inline = True)
-	embed.add_field(name = "Reason", value = reason, inline = True)
-	embed.add_field(name = "Moderator", value = ctx.author.name, inline = True)
-	await ctx.send(embed = embed)
+	embed=discord.Embed(title="KICK", description="user as been kicked succesfully")
+	embed.set_thumbnail(url="https://media.tenor.com/images/27f16871c55a3376fa4bfdd76ac2ab5c/tenor.gif")
+	await ctx.send(embed=embed)
 
 #$ban
 @bot.command()
@@ -83,28 +80,11 @@ async def kick(ctx, user : discord.User, *reason):
 async def ban(ctx, user : discord.User, *reason):
 	reason = " ".join(reason)
 	await ctx.guild.ban(user, reason = reason)
-	embed = discord.Embed(title = "**BANNED**", description = " **ENJOY :wink: **", url = "https://discord.gg/EN9sv4d")
-	embed.set_thumbnail(url = "https://media1.tenor.com/images/d856e0e0055af0d726ed9e472a3e9737/tenor.gif?itemid=8540509")
-	embed.add_field(name = "Ban Member", value = user.name, inline = True)
-	embed.add_field(name = "Reason", value = reason, inline = True)
-	embed.add_field(name = "Moderator", value = ctx.author.name, inline = True)
-	await ctx.send(embed = embed)
+	embed=discord.Embed(title="BAN", description="user as been banned succesfully")
+	embed.set_thumbnail(url="https://i.imgur.com/azCR8D1.gif")
+	await ctx.send(embed=embed)
 
 #$unban
-
-@bot.command()
-async def unban(ctx, user, *reason):
-	reason = " ".join(reason)
-	userName, userId = user.split("#")
-	bannedUsers = await ctx.guild.bans()
-	for i in bannedUsers:
-		if i.user.name == userName and i.user.discriminator == userId:
-			await ctx.guild.unban(i.user, reason = reason)
-			await ctx.send(f"{user} is now  unban.")
-			return
-	#Ici on sait que lutilisateur na pas ete trouvé
-	await ctx.send(f"The user {user} is not ban")
-
 
 #$warn
 
