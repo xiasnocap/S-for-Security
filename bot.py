@@ -1,12 +1,10 @@
 import discord
 from discord.ext import commands, tasks
-import random
-import youtube_dl
-import asyncio
 
 
-
-TOKEN = 'token'
+#token
+tokenfile = open("token.txt")
+TOKEN = tokenfile.read()
 bot = commands.Bot(command_prefix = "$", description = "SECURITY LVL:\n1\n2\n3\n4\n5\n6 ")
 bot.remove_command('help')
 
@@ -36,7 +34,16 @@ async def help(ctx):
 #$invite
 @bot.command()
 async def invite(ctx):
-	await ctx.send("https://discord.com/api/oauth2/authorize?client_id=769915966468390922&permissions=8&scope=bot")
+	await ctx.send("invite link: https://discord.com/api/oauth2/authorize?client_id=775266881682014248&permissions=8&scope=bot")
+
+#$codesource
+@bot.command()
+async def codesource(ctx):
+	await ctx.send("sourcecode = https://github.com/NeKroFR/S-for-Security")
+
+##################################################
+##########  ADMIN   ##############################
+##################################################
 
 #$clear
 @bot.command()
