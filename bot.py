@@ -29,7 +29,7 @@ async def on_ready():
 #$help
 @bot.command()
 async def help(ctx):
-	await ctx.send("I don't make it")
+	await ctx.send("commands:\nhelp\ninvite\ncodesource\nclear\npurge\nmute\nkick\nban\n\nunban\nwarn")
 	
 #$invite
 @bot.command()
